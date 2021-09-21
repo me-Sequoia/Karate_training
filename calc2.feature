@@ -1,13 +1,9 @@
 Feature: window Calculator
 
-Scenario: Open calculator
+Background: Open calculator
     * robot { window: 'Calculator', fork: 'calc' }
-    * call read('calc.feature@tag1')
-    * click('Close Calculator')
 
-
-@tag1 @ignore
-Scenario Outline: automate the addition, subtraction, multiplication and division of any two given number.
+Scenario Outline: Automate the addition, subtraction, multiplication and division of any two given number.
     * def num1 = 'Six'
     * def num2 = 'Two'
     * click('Clear')
@@ -18,6 +14,7 @@ Scenario Outline: automate the addition, subtraction, multiplication and divisio
     * match locate('#CalculatorResults').name == 'Display is <result>'
     * screenshot()
 
+
     Examples:
     |  operation       | result |
     |  'Plus'          |   8    |
@@ -25,3 +22,5 @@ Scenario Outline: automate the addition, subtraction, multiplication and divisio
     |  'Multiply by'   |   12   |
     |  'Divide by'     |   3    |
 
+Scenario: Close Calculator
+    * click('Close Calculator')
