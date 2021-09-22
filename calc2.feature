@@ -2,10 +2,10 @@ Feature: window Calculator
 
 Background: Open calculator
     * robot { window: 'Calculator', fork: 'calc' }
-
-Scenario Outline: Automate the addition, subtraction, multiplication and division of any two given number.
     * def num1 = 'Six'
     * def num2 = 'Two'
+
+Scenario Outline: Automate the addition, subtraction, multiplication and division of two given number.
     * click('Clear')
     * click(num1)
     * click(<operation>)
